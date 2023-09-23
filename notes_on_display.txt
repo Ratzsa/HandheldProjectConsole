@@ -1,0 +1,16 @@
+The 1.3" display is SH1106.
+The 0.96" display is SSD1306.
+The library is good for both.
+For SH1106, set
+#define SSD1306_Width 128
+(ssd1306.h line 111) to
+#define SSD1306_Width 132
+
+Resolution seems to only be 128x64.
+The SH1106 has an internal RAM of 132x64 but that does not translate to an actual screen size of 132x64.
+
+Coordinate ranges:
+X: 2 - 129 (weird)
+Y: 0 - 63 (as it should be)
+
+This means any coordinate system that covers the entire width of the screen MUST be uint16_t or larger!
