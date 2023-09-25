@@ -138,10 +138,15 @@ int main(void)
   MX_ADC2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  ssd1306_Init();
-  logoScreen();
-  trademarkScreen();
-  ssd1306_Fill(Black);
+
+  if(!gameAttached)
+  {
+    ssd1306_Init();
+    logoScreen();
+    trademarkScreen();
+    ssd1306_Fill(Black);
+  }
+
 
 //  HAL_ADC_Start(&hadc2);
 //  HAL_ADC_Start_DMA(&hadc2, joystickXY, 2);

@@ -20,20 +20,22 @@ void mainMenu()
 {
 	menuSelections selection = menuOption1;
 	uint8_t buttonPressed = false;
+	uint32_t releaseTimer[2] = { 0 };
+	uint8_t releaseMarker[2] = { 0 };
 
 	ssd1306_Fill(Black);
 	printMenu(selection);
 
 	while(1)
 	{
-		if(DPAD_DOWN && (selection <= 2) && !buttonPressed)
+		if(DPAD_DOWN && (selection <= 2) && !buttonPressed && !releaseMarker[0])
 		{
 			selection++;
 			buttonPressed = true;
 			printMenu(selection);
 		}
 
-		if(DPAD_UP && (selection > 0) && !buttonPressed)
+		if(DPAD_UP && (selection > 0) && !buttonPressed && !releaseMarker[1])
 		{
 			selection--;
 			buttonPressed = true;
@@ -74,6 +76,29 @@ void mainMenu()
 
 			default:
 				break;
+			}
+		}
+
+		if(!DPAD_UP && buttonPressed)
+		{
+			releaseMarker[0] = 1;
+			releaseTimer[0] = HAL_GetTick();
+		}
+
+		if(!DPAD_DOWN && buttonPressed)
+		{
+			releaseMarker[1] = 1;
+			releaseTimer[1] = HAL_GetTick();
+		}
+
+		for(uint8_t i = 0; i < 2; i++)
+		{
+			if(releaseMarker[i])
+			{
+				if(HAL_GetTick() - releaseTimer[i] > 25)
+				{
+					releaseMarker[i] = 0;
+				}
 			}
 		}
 

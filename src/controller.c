@@ -12,7 +12,7 @@ void transmitController()
         if(HAL_GetTick() - sendTimer > 16)
         {
             controllerState = SET_CONTROLLER;
-            HAL_UART_Transmit_DMA(&huart2, &controllerState, sizeof(controllerState));
+            HAL_UART_Transmit_DMA(&huart1, &controllerState, sizeof(controllerState));
         }
     }
 }
