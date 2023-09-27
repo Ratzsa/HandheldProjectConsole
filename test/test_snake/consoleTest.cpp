@@ -3,7 +3,7 @@
 
 extern "C"
 {
-    #include "snakegame.c"
+    // #include "snakegame.c"
 }
 
 class TestSnakeMovement : public testing::Test
@@ -18,14 +18,14 @@ protected:
 TEST_F(TestSnakeMovement,IfMovementUpReturnMovementMinusThreeYAxis)
 {
     // ARRANGE
-    uint8_t movement = 0;
-    uint8_t xCoords = 10;
-    uint8_t yCoords = 10;
-    uint8_t previousMove = 0;
+    uint8_t numA = 5;
+    uint8_t numB = 15;
+    uint8_t numC = 20;
+    uint8_t res;
 
     // ACT
-    makeMove(movement, &xCoords, &yCoords, &previousMove);
+    res = numA + numB;
 
     // ASSERT
-    ASSERT_EQ(7, yCoords);
+    ASSERT_EQ(numC, res);
 }

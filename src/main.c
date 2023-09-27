@@ -108,7 +108,7 @@ int main(void)
 //	volatile uint32_t timeNow = HAL_GetTick();
 	// uint32_t joystickXY[2] = { 1, 0 };
 
-	uint8_t gameAttached = true;
+	uint8_t gameAttached = false;
 
 
 
@@ -159,11 +159,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-//	if(HAL_ADC_PollForConversion(&hadc2, 10) == HAL_OK)
-//	{
-//		joystick_X = HAL_ADC_GetValue(&hadc2);
-//	}
     if(gameAttached) transmitController();
 
     else mainMenu();
