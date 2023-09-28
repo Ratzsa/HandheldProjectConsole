@@ -108,7 +108,7 @@ int main(void)
 //	volatile uint32_t timeNow = HAL_GetTick();
 	// uint32_t joystickXY[2] = { 1, 0 };
 
-	uint8_t gameAttached = false;
+	uint8_t gameAttached = true;
 
 
 
