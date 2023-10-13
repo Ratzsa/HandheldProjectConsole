@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"name": "HandheldConsoleProject",
+			"path": "."
+		},
+		{
+			"name": "DragonSlayer2000",
+			"path": "../DragonSlayer2000"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stm32f3xx_hal.h": "c",
+			"stm32f3xx_hal_conf.h": "c",
+			"stdbool.h": "c",
+			"ssd1306.h": "c",
+			"stddef.h": "c",
+			"compare": "cpp"
+		}
+	}
+}

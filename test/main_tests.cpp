@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-// #include "consoleTest.cpp"
 
 int main(int argc, char **argv)
 {

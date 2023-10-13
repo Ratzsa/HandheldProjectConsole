@@ -57,6 +57,7 @@ DMA_HandleTypeDef hdma_usart1_tx;
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
@@ -70,34 +71,28 @@ void Error_Handler(void);
 #define DPAD_LEFT_GPIO_Port GPIOC
 #define DPAD_UP_Pin GPIO_PIN_1
 #define DPAD_UP_GPIO_Port GPIOC
-#define DPAD_RIGHT_Pin GPIO_PIN_2
-#define DPAD_RIGHT_GPIO_Port GPIOC
-#define DPAD_DOWN_Pin GPIO_PIN_3
-#define DPAD_DOWN_GPIO_Port GPIOC
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
-#define JOYSTICK_X_Pin GPIO_PIN_5
-#define JOYSTICK_X_GPIO_Port GPIOA
-#define JOYSTICK_Y_Pin GPIO_PIN_6
-#define JOYSTICK_Y_GPIO_Port GPIOA
-#define Joystick_BTN_Pin GPIO_PIN_4
-#define Joystick_BTN_GPIO_Port GPIOC
-#define BTN_RED_Pin GPIO_PIN_13
-#define BTN_RED_GPIO_Port GPIOB
-#define BTN_GRN_Pin GPIO_PIN_14
-#define BTN_GRN_GPIO_Port GPIOB
-#define BTN_YEL_Pin GPIO_PIN_15
-#define BTN_YEL_GPIO_Port GPIOB
-#define BTN_SHL_Pin GPIO_PIN_6
-#define BTN_SHL_GPIO_Port GPIOC
+#define DPAD_RIGHT_Pin GPIO_PIN_4
+#define DPAD_RIGHT_GPIO_Port GPIOA
+#define BTN_YEL_Pin GPIO_PIN_5
+#define BTN_YEL_GPIO_Port GPIOA
+#define BTN_GRN_Pin GPIO_PIN_6
+#define BTN_GRN_GPIO_Port GPIOA
+#define BTN_RED_Pin GPIO_PIN_7
+#define BTN_RED_GPIO_Port GPIOA
+#define DPAD_DOWN_Pin GPIO_PIN_0
+#define DPAD_DOWN_GPIO_Port GPIOB
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define BTN_SHL_Pin GPIO_PIN_6
+#define BTN_SHL_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #define NUMBER_OF_USER_BUTTONS 4
@@ -111,6 +106,7 @@ void Error_Handler(void);
 #define BUTTON_RED HAL_GPIO_ReadPin(BTN_RED_GPIO_Port, BTN_RED_Pin)
 #define BUTTON_GREEN HAL_GPIO_ReadPin(BTN_GRN_GPIO_Port, BTN_GRN_Pin)
 #define BUTTON_YELLOW HAL_GPIO_ReadPin(BTN_YEL_GPIO_Port, BTN_YEL_Pin)
+
 
 /* USER CODE END Private defines */
 

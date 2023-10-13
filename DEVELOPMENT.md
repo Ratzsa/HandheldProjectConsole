@@ -66,3 +66,29 @@ After struggling for several days with UART and DMA, I decided to just use a pol
 On the game side, receiving with interrupts seems to work very well. Will try to construct a game and test everything.
 It might have been premature but I have put the UART test I wrote down as a game template since it does seem like it can receive the correct controls.
 Will have to start working on unit testing as well so I can use that through game development.
+
+## 2023-10-03
+Link to where I got the hardware debounce connection: https://digilent.com/reference/learn/microprocessor/tutorials/debouncing-via-rc-filter/start
+Link to where I got the idea for hardware debounce in the first place: https://hackaday.com/2015/12/09/embed-with-elliot-debounce-your-noisy-buttons-part-i/
+
+Time to work on unit testing, now that I know I can get that working.
+
+## 2023-10-12
+Having given my brother the noble task of soldering together a physical prototype (that still connects to one or two dev-boards unfortunately) and after getting some unit tests to work, I set out to finish up the small game I started. And now that is done. It is a silly little game, but it should show that the concept works. When a game is not connected (there will be a switch that checks for a physical game but for now it is just a variable) the "console" boots into a small menu where you can play Snake, test controls, tests the display, or just read the threatening credits.
+When a game is connected, the console enters a function from where it only sends control inputs to the game via UART. This happens every 16 milliseconds (which is around twice per frame for a display that is running at 60 fps). The game receives the controls and does what it wants to them. The controls are converted into a single byte so there should be no errors or problems.
+
+The project should now contain everything required and the only thing left is polishing. I will try to rewrite it for the ESP32 so I can also have wifi or bluetooth and much better looking code.
+* Only C code except for unit tests.
+* No open source licenses used. BSD, MIT and maybe Apache, but will look into it and provide the proper license agreements.
+* Used Github.
+* Development process is documented in this document.
+* Development images, video, other technical documents will be provided on Github.
+* No delays that makes the console miss inputs.
+-----
+* Relatively optimized for cost, efficiency, performance.
+    - Still uses a development board, but should be easy to convert to PCB and microcontroller chip.
+    - Using STM32 for the console is overkill since all it really does is transmit 1 byte of data 120 times a second.
+    - When turned into a product, might need some powerful batteries, though it should easily be able to play for way longer than a Nintendo Switch regardless.
+* Unit tests!
+    - Can be improved and expanded.
+* Communication via UART.
