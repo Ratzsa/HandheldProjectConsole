@@ -6,7 +6,7 @@ To make games or tools for this project, the following is needed:
 The transmitted byte is interpreted like this:
 
 ```
-0b11111111
+0b10101010
   ^^^^^^^^
   ||||||||
   |||||||\--> Green button
