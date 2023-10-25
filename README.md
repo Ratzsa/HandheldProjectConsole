@@ -19,3 +19,4 @@ The transmitted byte is interpreted like this:
   \-->        D-pad Up
 
 ```
+Unit testing is done in the Tests environment with PlatformIO.
